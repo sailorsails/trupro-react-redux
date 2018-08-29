@@ -1,29 +1,14 @@
 import React, { Component } from 'react';
-
+// import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 import './App.css';
 import Search from './components/Search';
-import Results from './components/Results';
-import EthHelper from './components/EthHelper';
+import {Results} from './components/Results';
+// import EthHelper from './components/EthHelper';
+// import * as actions from './actions';
 
-let ethHelper = new EthHelper();   
+// let ethHelper = new EthHelper();   
 
-// function mapStateToProps(state) {
-//   return { results: state.results };
-// }
-
-// function mapDispatchToProps(dispatch) {
-//   return { actions: bindActionCreators(actions, dispatch) };
-// }
-
-// @connect((store) => {
-//   return {};
-// })
-// @connect((store) =>{
-//   return{
-//     results: []
-//   }
-// })
 class App extends Component {
   // constructor(){
   //   super();
@@ -66,16 +51,16 @@ class App extends Component {
   // }
   handleSearch(searchFirst, searchSecond){
     
-    this.setState({startBlockVal: searchFirst, endBlockVal: searchSecond}, () =>{
+    // this.setState({startBlockVal: searchFirst, endBlockVal: searchSecond}, () =>{
       
-      ethHelper.getBlocksAndTransactions(this.state.startBlockVal, this.state.endBlockVal, ()=>{
-        this.setState(ethHelper.getState(), () =>{
-            console.log('Set state called');
-        });
-        // var ethState = ethHelper.getState();
-        // console.log(ethState);
-      });
-    });
+    //   ethHelper.getBlocksAndTransactions(this.state.startBlockVal, this.state.endBlockVal, ()=>{
+    //     this.setState(ethHelper.getState(), () =>{
+    //         console.log('Set state called');
+    //     });
+    //     // var ethState = ethHelper.getState();
+    //     // console.log(ethState);
+    //   });
+    // });
   }
   componentWillMount(){
     // this.setState(
@@ -120,13 +105,22 @@ class App extends Component {
     return (      
         <div className="App">
           <h1>TruPro-Module</h1>        
-          <Search search={this.state.handleSearch.bind(this)} />
-          <Results results={this.state.results}/>
+          {/* <Search search={this.state.handleSearch.bind(this)} /> */}
+          <Search/>
+          <Results results={this.props.results}/>
           
         </div>
       
     );
   }
 }
-export default App;
-// export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+function mapStateToProps(state) {
+  return { results: state.results };
+}
+
+function mapDispatchToProps(dispatch) {
+  // return { actions: bindActionCreators(actions, dispatch) };
+}
+// export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);

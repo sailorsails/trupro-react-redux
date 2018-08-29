@@ -1,6 +1,6 @@
 export function submitSearch(search){
     return{
-        type: "GET_CURRENT_BLOCK_NUMBER_COMPLETE",
+        type: "SUBMIT_SEARCH",
         payload: {
             searchTermFirst: search.searchTermFirst,
             searchTermSecond: search.searchTermSecond
@@ -15,9 +15,9 @@ export function searchTypeChange(val){
     }
 }
 
-export function isSearchEnabled(val){
+export function isSubmitEnabled(val){
     return{
-        type: "IS_SUBMIT_ENABLED",
+        type: "SUBMIT_ENABLED",
         payload: val
     }
 }

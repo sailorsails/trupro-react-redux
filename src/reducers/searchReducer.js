@@ -1,9 +1,9 @@
-export default(state = {
+export default (state = {
     searchTermFirst: '',
     searchTermSecond: '',
     searchType: 'SINGLE',
     isSubmitEnabled: false,
-    error:null
+    error: null
 }, action) => {
     switch(action.type){
 

@@ -1,4 +1,4 @@
-export default(state = {
+export default (state = {
     transactions: []
 }, action) => {
     switch(action.type){
@@ -23,6 +23,5 @@ export default(state = {
         default:{
             return state;
         }
-        
     }
 }
