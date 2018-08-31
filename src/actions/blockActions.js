@@ -28,12 +28,3 @@ export function processBlocks(){
         payload: {}
     }
 }
-
-
-// export const getBlocks = (item) => {
-//     console.log('Getting Blocks');
-//     return {
-//         type: 'get',
-//         item
-//     };
-// }

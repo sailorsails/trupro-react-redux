@@ -1,23 +1,26 @@
-export function submitSearch(search){
+export function submitSearch(payload){
     return{
-        type: "SUBMIT_SEARCH",
-        payload: {
-            searchTermFirst: search.searchTermFirst,
-            searchTermSecond: search.searchTermSecond
-        }
+        type: "SEARCH_SUBMIT",
+        payload: payload
+    }
+}
+export function searchTermChange(payload){
+    return{
+        type: "SEARCH_TERM_CHANGE",
+        payload: payload
     }
 }
 
-export function searchTypeChange(val){
+export function searchTypeChange(payload){
     return{
         type: 'SEARCH_TYPE_CHANGED',
-        payload: val
+        payload: payload
     }
 }
 
-export function isSubmitEnabled(val){
+export function searchSubmitEnabledChange(payload){
     return{
-        type: "SUBMIT_ENABLED",
-        payload: val
+        type: "SUBMIT_ENABLED_CHANGE",
+        payload: payload
     }
 }

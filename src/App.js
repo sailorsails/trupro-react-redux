@@ -6,6 +6,8 @@ import Search from './components/Search';
 import {Results} from './components/Results';
 // import EthHelper from './components/EthHelper';
 // import * as actions from './actions';
+import { submitSearch } from './actions/searchActions';
+import store from './store'
 
 // let ethHelper = new EthHelper();   
 
@@ -49,18 +51,21 @@ class App extends Component {
   //     // }
   //   // }
   // }
-  handleSearch(searchFirst, searchSecond){
+  // handleSearch(searchFirst, searchSecond){
     
-    // this.setState({startBlockVal: searchFirst, endBlockVal: searchSecond}, () =>{
+  //   // this.setState({startBlockVal: searchFirst, endBlockVal: searchSecond}, () =>{
       
-    //   ethHelper.getBlocksAndTransactions(this.state.startBlockVal, this.state.endBlockVal, ()=>{
-    //     this.setState(ethHelper.getState(), () =>{
-    //         console.log('Set state called');
-    //     });
-    //     // var ethState = ethHelper.getState();
-    //     // console.log(ethState);
-    //   });
-    // });
+  //   //   ethHelper.getBlocksAndTransactions(this.state.startBlockVal, this.state.endBlockVal, ()=>{
+  //   //     this.setState(ethHelper.getState(), () =>{
+  //   //         console.log('Set state called');
+  //   //     });
+  //   //     // var ethState = ethHelper.getState();
+  //   //     // console.log(ethState);
+  //   //   });
+  //   // });
+  // }
+  handleSearch = () =>{
+
   }
   componentWillMount(){
     // this.setState(
@@ -106,6 +111,8 @@ class App extends Component {
         <div className="App">
           <h1>TruPro-Module</h1>        
           {/* <Search search={this.state.handleSearch.bind(this)} /> */}
+          {/* <Search search={this.props.handleSearch.bind(this)} /> */}
+          
           <Search/>
           <Results results={this.props.results}/>
           
@@ -114,13 +121,20 @@ class App extends Component {
     );
   }
 }
-
+// store.subscribe(() => {
+//   store.getState();
+// });
 function mapStateToProps(state) {
-  return { results: state.results };
+  return { 
+
+  };
 }
 
 function mapDispatchToProps(dispatch) {
   // return { actions: bindActionCreators(actions, dispatch) };
+  
+  return{
+    //submitSearch: (payload) => dispatch(submitSearch(payload))
+  }
 }
-// export default App;
 export default connect(mapStateToProps, mapDispatchToProps)(App);

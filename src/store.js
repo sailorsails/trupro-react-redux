@@ -5,6 +5,7 @@ import mainReducer  from './reducers/mainReducer';
 
 const middleware = applyMiddleware(logger, promise());
 
-export default(initialState) => {
-    return createStore(mainReducer, initialState, middleware);
-}
+// export default(initialState) => {
+//     return createStore(mainReducer, initialState, middleware );
+// }
+export default createStore(mainReducer, {}, middleware);

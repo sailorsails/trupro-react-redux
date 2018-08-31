@@ -1,6 +1,6 @@
 {
   "name": "trupro-module",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "A basic ReactJS website with Redux module for querying transaction data from the Etheruem Blockchain.",
   "keywords": [
     "ethereum",
@@ -22,6 +22,7 @@
   "private": false,
   "dependencies": {
     "react": "^16.4.2",
+    "react-bootstrap": "^0.32.3",
     "react-dom": "^16.4.2",
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.5",
