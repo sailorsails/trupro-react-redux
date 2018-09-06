@@ -1,7 +1,7 @@
 
 export default (state = {
-    searchTermFirst: '',
-    searchTermSecond: '',
+    searchTermStart: '',
+    searchTermEnd: '',
     searchType: 'SINGLE',
     isSubmitEnabled: false,
     searchTypes: ['SINGLE', 'RANGE'],
@@ -9,24 +9,33 @@ export default (state = {
 }, action) => {
     switch(action.type){
 
-        case "SEARCH_TYPE_CHANGED": {
-            
-            return {...state, searchType: action.payload};
+        case "SEARCH_TYPE_CHANGED": {            
+            state =  {...state, searchType: action.payload};
+            break;
             
         }
-        case "SEARCH_TERM_CHANGED": {
-            return{...state, searchTermFirst: action.payload.searchTermFirst, searchTermSecond: action.payload.searchTermSecond}
+        case "SEARCH_TERM_START_CHANGED": {
+            
+            state = {...state, searchTermStart: action.payload.searchTermStart};
+            break;
+        }
+        case "SEARCH_TERM_END_CHANGED": {
+            
+            state = {...state, searchTermEnd: action.payload.searchTermEnd};
+            break;
         }
         case "SEARCH_SUBMIT": {
-            return {...state, searchTermFirst: action.payload.searchTermFirst, searchTermSecond: action.payload.searchTermSecond};
+            // state =  {...state, searchTermStart: action.payload.searchTermStart, searchTermEnd: action.payload.searchTermEnd};
+            break;
             
         }
         case "SUBMIT_ENABLED_CHANGE": {
-            return {...state, isSubmitEnabled: action.payload};
+            state = {...state, isSubmitEnabled: action.payload};
+            break;
              
         }
         default:
-        return state;
+        
     }
-    
+    return state;
 }

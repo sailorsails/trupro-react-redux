@@ -4,9 +4,17 @@ export function submitSearch(payload){
         payload: payload
     }
 }
-export function searchTermChange(payload){
+
+export function searchTermStartChange(payload){
     return{
-        type: "SEARCH_TERM_CHANGE",
+        type: "SEARCH_TERM_START_CHANGED",
+        payload: payload
+    }
+}
+
+export function searchTermEndChange(payload){
+    return{
+        type: "SEARCH_TERM_END_CHANGED",
         payload: payload
     }
 }
